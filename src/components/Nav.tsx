@@ -9,8 +9,8 @@ const links = [
         path: "/"
     },
     {
-        name: "kontakt",
-        path: "/contact"
+        name: "usługi",
+        path: "/services"
     },
     {
         name: "portfolio",
@@ -26,10 +26,10 @@ const links = [
 export default function Nav() {
     const pathName = usePathname();
 
-    return <nav className="flex gap-8 capitalize">
+    return <nav className="flex gap-8 ">
         {
             links.map((link, idx) => {
-                return <Link href={link.path} key={idx} className={`${pathName === link.path && 'text-accent border-b-2 border-accent'}`}>{link.name}</Link>
+                return <Link href={link.path} key={idx} className={`${pathName === link.path && 'text-accent border-b-2 border-accent'} capitalize font-medium hover:text-accent transition-all`}>{link.name}</Link>
             })
         }
     </nav>
