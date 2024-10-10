@@ -14,15 +14,14 @@ const stairAnimation = {
 
 const reverseIndex = (index: number) => {
     const totalSteps = 6;
-    console.log(index)
+
     const result = totalSteps - index - 1;
-    console.log("reesult ", result)
+
     return result;
 }
 
 export default function Stairs() {
     return <>
-        { /**hjkl; */}
         {
             [...Array(6)].map((_, idx) =>
                 <motion.div key={idx} variants={stairAnimation} initial="initial" animate="animate" exit="exit" transition={{

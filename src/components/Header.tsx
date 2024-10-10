@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Nav from "./Nav";
 import { Button } from "./ui/button";
+import MobilNav from "./MobilNav";
 
 export default function Header() {
     return <header className="py-8 xl:py-12 text-white">
@@ -23,7 +24,7 @@ export default function Header() {
 
             { /**mobile nav */}
             <div className="xl:hidden">
-                mobnav
+                <MobilNav />
             </div>
         </div>
     </header>
