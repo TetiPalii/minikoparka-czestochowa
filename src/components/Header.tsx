@@ -11,7 +11,7 @@ export default function Header() {
             <Link href="/">
                 <h1 className="text-4xl font-semibold">
                     Kopi
-                    <span className="text-accent">ę</span>
+                    <span className="text-accent">ę.</span>
                 </h1>
             </Link>
 
