@@ -27,7 +27,7 @@ export default function Photo() {
                     initial={{ strokeDasharray: "24 10 0 0" }}
                     animate={{
                         strokeDasharray: ["15 120 25 25", "16 25 92 72", "4 250 22 22"],
-                        rotate: ["120, 360"]
+                        rotate: ["160, 360"]
                     }} transition={{
                         duration: 20,
                         repeat: Infinity,
