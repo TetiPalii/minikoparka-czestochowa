@@ -33,7 +33,7 @@ export default function Services() {
                             initial={{ opacity: 0 }}
                             animate={{
                                 opacity: 1,
-                                transition: { delay: index + 2, ease: "linear" },
+                                transition: { delay: index + 2, ease: "easeInOut" },
                             }}
                             className="flex flex-col flex-1 justify-center items-center gap-6 group hover:text-outline-hover transition-all duration-500 cursor-pointer"
                         >
@@ -43,12 +43,17 @@ export default function Services() {
                                 </h2>
                             </div>
                             <motion.div
-                                className="border-b border-white/20"
-                                initial={{ width: "0%" }}
-                                animate={{ width: "50%" }}
+                                style={{
+                                    height: "1px", // Wysokość borderu
+                                    backgroundColor: "rgba(255, 255, 255, 0.2)", // Kolor borderu
+                                }}
+
+                                initial={{ opacity: 0, width: "0%" }}
+                                animate={{ width: "100%", opacity: 1 }}
                                 transition={{
-                                    duration: 0.5,
-                                    ease: "easeOut",
+                                    duration: 1.5,
+                                    ease: "easeInOut",
+                                    delay: index + 2
                                 }}
 
                             />
