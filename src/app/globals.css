@@ -21,5 +21,9 @@
   .text-outline-hover{
     -webkit-text-stroke:1px #00ff99;
   }
-  
+  /* .background{
+    background-image:url("/service.jpeg");
+    background-repeat: no-repeat;
+    background-size: contain;
+  } */
 }
