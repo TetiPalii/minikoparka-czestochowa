@@ -1,9 +1,12 @@
+
 import { Button } from "@/components/ui/button";
 import { FaPhoneFlip } from "react-icons/fa6";
 import Image from "next/image";
 import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
+import Link from "next/link";
+import { HoverButton } from "@/components/HoverButton";
 
 export default function Home() {
   return (
@@ -20,9 +23,14 @@ export default function Home() {
             {/**button and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button variant="outline" className="uppercase flex items-center gap-2" size={"lg"}>
-                <span>Zamów usługę</span>
-                <FaPhoneFlip />
+                <Link href={"tel:+48512419036"} className="flex items-center gap-2">
+                  <span>+48 512 419 036</span>
+                  <FaPhoneFlip />
+                </Link>
               </Button>
+
+
+
               <div className="mb-8 xl:mb-0">
                 <Social containerStyles="flex gap-6" iconStyles="w-9 h-9 flex items-center justify-center border border-accent rounded-full text-accent text-base hover:bg-accent hover:text-primary transition-all duration-500" />
               </div>

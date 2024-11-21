@@ -59,7 +59,7 @@ export default function Services() {
                     });
                 }
             }
-        }, services.length * 300 + 500); // Czas trwania animacji wszystkich elementów + dodatkowe opóźnienie
+        }, services.length * 300 + 500);
 
         return () => clearTimeout(timer);
     }, []);
@@ -77,6 +77,8 @@ export default function Services() {
                 >
                     {services.map((service, index) => (
                         <div className="sm:h-[150px] shadow-inner relative  ">
+
+
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0 }}
@@ -87,6 +89,7 @@ export default function Services() {
                                 className="  flex flex-col flex-1 justify-center items-center gap-2 duration-500 sm:h-full  "
                                 ref={index === services.length - 1 ? lastItemRef : null}
                             >
+
                                 <div className="hidden sm:flex absolute h-full w-full overflow-hidden opacity-[60%]">
                                     <Image src={service.img} alt={service.title} quality={100} className="object-cover rounded-xl w-full" height={150} width="500" />
                                 </div>
@@ -97,8 +100,8 @@ export default function Services() {
                                 </div>
                                 <motion.div
                                     style={{
-                                        height: "1px", // Wysokość borderu
-                                        backgroundColor: "rgba(255, 255, 255, 0.2)", // Kolor borderu
+
+                                        backgroundColor: "#00ff99", // Kolor borderu
                                     }}
 
                                     initial={{ opacity: 0, width: "0%" }}
@@ -108,10 +111,11 @@ export default function Services() {
                                         ease: "easeInOut",
                                         delay: index + 2
                                     }}
-                                    className="sm:hidden"
+                                    className="sm:hidden h-[0.4px]"
 
                                 />
                             </motion.div>
+
                         </div>
                     ))}
                 </motion.div>
