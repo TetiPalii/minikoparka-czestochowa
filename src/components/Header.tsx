@@ -19,7 +19,7 @@ export default function Header() {
 
             <div className="hidden xl:flex items-center gap-8">
                 <Nav />
-                <Button>Współpraca</Button>
+                {/* <Button>Współpraca</Button> */}
             </div>
 
             { /**mobile nav */}

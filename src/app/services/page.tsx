@@ -64,7 +64,7 @@ export default function Services() {
         return () => clearTimeout(timer);
     }, []);
     return (
-        <section className="flex flex-col justify-center pt-6 pb-24 ">
+        <section className="flex flex-col justify-center  pb-24 ">
             <h1 className="h1 text-center mb-24 ">Wykonujemy:</h1>
             <div className="container mx-auto">
                 <motion.div

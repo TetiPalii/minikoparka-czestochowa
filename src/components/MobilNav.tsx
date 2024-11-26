@@ -14,15 +14,15 @@ const links = [
         name: "usługi",
         path: "/services"
     },
-    {
-        name: "portfolio",
-        path: "/portfolio"
-    },
+    // {
+    //     name: "portfolio",
+    //     path: "/portfolio"
+    // },
 
-    {
-        name: "opinie",
-        path: "/opinion"
-    },
+    // {
+    //     name: "opinie",
+    //     path: "/opinion"
+    // },
 ]
 export default function MobilNav() {
     const pathName = usePathname();

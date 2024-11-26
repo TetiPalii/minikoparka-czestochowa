@@ -4,7 +4,7 @@ import { FaFacebook, FaTelegram, FaWhatsapp } from "react-icons/fa";
 const social = [
     {
         icon: <FaFacebook />,
-        path: ""
+        path: "https://www.facebook.com/profile.php?id=61559576564617"
     },
     {
         icon: <FaTelegram />,

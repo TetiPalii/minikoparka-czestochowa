@@ -2,6 +2,8 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Button } from "./ui/button";
+import { FaPhoneFlip } from "react-icons/fa6";
 
 const links = [
     {
@@ -12,15 +14,15 @@ const links = [
         name: "usługi",
         path: "/services"
     },
-    {
-        name: "portfolio",
-        path: "/portfolio"
-    },
+    // {
+    //     name: "portfolio",
+    //     path: "/portfolio"
+    // },
 
-    {
-        name: "opinie",
-        path: "/opinion"
-    },
+    // {
+    //     name: "opinie",
+    //     path: "/opinion"
+    // },
 ]
 
 export default function Nav() {
@@ -32,5 +34,6 @@ export default function Nav() {
                 return <Link href={link.path} key={idx} className={`${pathName === link.path && 'text-accent border-b-2 border-accent'} capitalize font-medium hover:text-accent transition-all`}>{link.name}</Link>
             })
         }
+
     </nav>
 }
