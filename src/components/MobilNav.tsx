@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation"
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { CiMenuFries } from "react-icons/ci"
 import Link from "next/link";
+import { useState } from "react";
 
 const links = [
     {
@@ -26,7 +27,10 @@ const links = [
 ]
 export default function MobilNav() {
     const pathName = usePathname();
-    return <Sheet>
+    const [isOpen, setIsOpen] = useState(false);
+    const closeSheet = () => setIsOpen(false);
+
+    return <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger className="flex justify-center items-center text-[32px] text-accent">
             <CiMenuFries />
         </SheetTrigger>
@@ -36,7 +40,7 @@ export default function MobilNav() {
                 <Link href="/">
                     <h1 className="text-4xl font-semibold">
                         Kopi
-                        <span className="text-accent">ę</span>
+                        <span className="text-accent">ę.</span>
                     </h1>
                 </Link>
             </div>
