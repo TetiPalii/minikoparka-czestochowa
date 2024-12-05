@@ -76,7 +76,7 @@ export default function Services() {
                     className="grid grid-cols-1  md:grid-cols-2 gap-[60px]"
                 >
                     {services.map((service, index) => (
-                        <div className="sm:h-[150px] shadow-inner relative  ">
+                        <div className="sm:h-[150px] shadow-inner relative  " key={index}>
 
 
                             <motion.div

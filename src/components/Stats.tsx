@@ -19,7 +19,7 @@ export default function Stats() {
         <div className="container mx-auto">
             <div className="flex flex-col  gap-4 max-w-[80vw] mx-auto md:flex-wrap md:flex-row items-center justify-center">
                 {stats.map((stat, index) => {
-                    console.log(stat.text.length)
+
                     return <div className="flex
                     items-center justify-center gap-4 flex-1 xl:justify-center" key={index}>
                         <CountUp end={stat.num} delay={2} duration={5} className="text-4xl xl:text-6xl font-extrabold text-start" />

@@ -1,7 +1,7 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "./ui/sheet";
 import { CiMenuFries } from "react-icons/ci"
 import Link from "next/link";
 import { useState } from "react";
@@ -15,10 +15,10 @@ const links = [
         name: "usługi",
         path: "/services"
     },
-    // {
-    //     name: "portfolio",
-    //     path: "/portfolio"
-    // },
+    {
+        name: "kontakt",
+        path: "/contact"
+    },
 
     // {
     //     name: "opinie",
@@ -26,28 +26,42 @@ const links = [
     // },
 ]
 export default function MobilNav() {
+
     const pathName = usePathname();
     const [isOpen, setIsOpen] = useState(false);
-    const closeSheet = () => setIsOpen(false);
+
+    const closeSheet = () => {
+        setIsOpen(false);
+    };
+
+
 
     return <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger className="flex justify-center items-center text-[32px] text-accent">
             <CiMenuFries />
         </SheetTrigger>
         <SheetContent className="flex flex-col">
+
+            <SheetTitle className="sr-only">Nawigacja mobilna</SheetTitle>
+            <SheetDescription className="sr-only">
+                Wybierz stronę, aby przejść do jej zawartości.
+            </SheetDescription>
             {/**logo */}
             <div className="mt-32 mb-12 text-center text-2xl">
-                <Link href="/">
+                <Link href="/" onClick={closeSheet}>
                     <h1 className="text-4xl font-semibold">
                         Kopi
-                        <span className="text-accent">ę.</span>
+                        <span className="text-accent">ę</span>
                     </h1>
                 </Link>
             </div>
             <nav className="flex flex-col items-center justify-center gap-8">
-                {links.map((link, idx) => { return <Link href={link.path} key={idx} className={`${link.path === pathName && "text-accent border-b-2 border-accent"} capitalize text-xl hover:text-accent transition-all`}>{link.name}</Link> })}
+                {links.map((link: {
+                    name: string,
+                    path: string
+                }, idx: number) => { return <Link href={link.path} key={idx} onClick={closeSheet} className={`${link.path === pathName && "text-accent border-b-2 border-accent"} capitalize text-xl hover:text-accent transition-all`}>{link.name}</Link> })}
             </nav>
 
         </SheetContent>
-    </Sheet>
+    </Sheet >
 }

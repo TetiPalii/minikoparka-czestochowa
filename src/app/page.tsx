@@ -1,12 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { FaPhoneFlip } from "react-icons/fa6";
-import Image from "next/image";
 import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 import Link from "next/link";
-import { HoverButton } from "@/components/HoverButton";
+
 
 export default function Home() {
   return (

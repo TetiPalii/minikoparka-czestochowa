@@ -14,10 +14,10 @@ const links = [
         name: "usługi",
         path: "/services"
     },
-    // {
-    //     name: "portfolio",
-    //     path: "/portfolio"
-    // },
+    {
+        name: "kontakt",
+        path: "/contact"
+    },
 
     // {
     //     name: "opinie",
