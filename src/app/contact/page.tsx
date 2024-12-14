@@ -85,8 +85,7 @@ export default function Contact() {
         message: string,
 
     }) => {
-        alert("Formularz został poprawnie wysłany!" + JSON.stringify(data));
-        // Send data to the server or perform other actions
+        console.log(data)
     };
 
 
@@ -115,39 +114,42 @@ export default function Contact() {
                                 Indywidualna wycena na podstawie zdjęć oraz szczegółowego opisu.
                                 Konsułtacja, doradztwo oraz umówienie się na termin. <br />Zapraszamy!
                             </p>
-                            <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
-                                <div>
-                                    <Controller
-                                        name="firstname"
-                                        control={control}
-                                        render={({ field }) => (
-                                            <Input
-                                                type="text"
-                                                placeholder="Imię"
-                                                {...field}
-                                            />
-                                        )}
-                                    />
-                                    {errors.firstname && (
-                                        <p className="text-red-500 text-sm">{errors.firstname.message}</p>
+                            <div className="gap-6 grid grid-cols-1 md:grid-cols-2 w-full">
+
+                                <Controller
+
+                                    name="firstname"
+                                    control={control}
+                                    render={({ field }) => (
+                                        <Input
+                                            type="text"
+                                            placeholder="Imię"
+                                            {...field}
+                                            className="w-full"
+                                        />
+                                    )
+                                    }
+                                />
+                                {errors.firstname && (
+                                    <p className="text-red-500 text-sm">{errors.firstname.message}</p>
+                                )}
+
+
+                                <Controller
+                                    name="phone"
+                                    control={control}
+                                    render={({ field }) => (
+                                        <Input
+                                            type="text"
+                                            placeholder="Numer kontaktowy"
+                                            {...field}
+                                        />
                                     )}
-                                </div>
-                                <div>
-                                    <Controller
-                                        name="phone"
-                                        control={control}
-                                        render={({ field }) => (
-                                            <Input
-                                                type="text"
-                                                placeholder="Numer kontaktowy"
-                                                {...field}
-                                            />
-                                        )}
-                                    />
-                                    {errors.phone && (
-                                        <p className="text-red-500 text-sm">{errors.phone.message}</p>
-                                    )}
-                                </div>
+                                />
+                                {errors.phone && (
+                                    <p className="text-red-500 text-sm">{errors.phone.message}</p>
+                                )}
+
                             </div>
 
                             {/** Select */}
@@ -227,3 +229,69 @@ export default function Contact() {
         </motion.section>
     );
 }
+
+{/** 
+    export default function Contact() {
+    return <motion.section initial={{ opacity: 0 }} animate={{
+        opacity: 1,
+        transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' }
+    }} className="py-6">
+        <div className="container mx-auto">
+            <div className="flex flex-col xl:flex-row gap-[30px]">
+                {/**form
+                <div className="order-2 xl:h-[54%] xl:order-none">
+                    <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+                        <h3 className="text-3xl text-center text-accent">
+                            Skontaktuj się z nami
+                        </h3>
+                        <p className="text-white/60 text-base text-center">Indywidualna wycena na podstawie zdjęć oraz szczegółowego opisu. Konsułtacja, doradztwo oraz umówienie się na termin. <br />Zapraszamy!</p>
+                        <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
+                            <Input type="firstname" placeholder="Imię" />
+                            <Input type="phone" placeholder="Numer kontaktowy" />
+                        </div>
+
+                        
+                        <Select>
+                            <SelectTrigger className="w-full">
+                                <SelectValue placeholder="Proszę wybrać usługę" />
+                            </SelectTrigger>
+                            <SelectContent className="min-w-[300px] max-w-full w-auto">
+                                <SelectGroup>
+                                    <SelectLabel>
+                                        Proszę wybrać usługę
+                                    </SelectLabel>
+                                    {services.map(({ title }, idx) => { return <SelectItem key={idx} value={title} className="break-words whitespace-normal">{title}</SelectItem> })}
+
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
+                       
+                        <Textarea className="h-[200px]" placeholder="Napisz  wiadomość do nas" />
+                        <Button size="lg" className="max-w-40">Wyślij</Button>
+                    </form>
+                </div>
+
+             
+                <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
+                    <ul className="flex flex-col gap-10">
+                        {
+                            info.map((item, idx) => {
+                                return <li key={idx} className="flex  items-center gap-6">
+                                    <div className="p-4 bg-[#27272c] text-accent rounded-xl flex items-center justify-center">
+                                        <div className="text-[28px]">{item.icon}</div>
+                                    </div>
+
+                                    <div>
+                                        <p>{item.description}</p>
+                                    </div>
+
+                                </li>
+                            })
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </motion.section>
+}
+*/}
