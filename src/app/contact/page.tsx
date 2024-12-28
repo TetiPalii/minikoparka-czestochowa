@@ -1,5 +1,5 @@
 "use client";
-
+import toast, { Toaster } from "react-hot-toast";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { z } from "zod";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -69,24 +68,54 @@ const schema = z.object({
 export default function Contact() {
     const { handleSubmit,
         control,
-        formState: { errors }, } = useForm({
-            resolver: zodResolver(schema),
-            defaultValues: {
-                firstname: "",
-                phone: "",
-                service: "",
-                message: "",
-            }
-        });
-    const onSubmit = (data: {
+        formState: { errors },
+        trigger,
+        reset,
+    } = useForm({
+        resolver: zodResolver(schema),
+        defaultValues: {
+            firstname: "",
+            phone: "",
+            service: "",
+            message: "",
+        },
+        mode: "onChange"
+    });
+    const onSubmit = (clientData: {
         firstname: string,
         phone: string,
         service: string,
         message: string,
 
     }) => {
-        console.log(data)
+        const sendFormData = async (data: {
+            firstname: string,
+            phone: string,
+            service: string,
+            message: string,
+
+        }) => {
+            try {
+                const response = await fetch('/api/send-data', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    toast.success("Wiadomość została wysłana!");
+                    reset();
+                } else {
+                    alert("Wystąpił problem z wysyłką danych.");
+                }
+            } catch (error: any) {
+                alert("Błąd: " + error.message);
+            }
+        };
+
+        sendFormData(clientData)
     };
+
 
 
 
@@ -115,41 +144,54 @@ export default function Contact() {
                                 Konsułtacja, doradztwo oraz umówienie się na termin. <br />Zapraszamy!
                             </p>
                             <div className="gap-6 grid grid-cols-1 md:grid-cols-2 w-full">
+                                <div className="w-full flex flex-col">
+                                    <Controller
 
-                                <Controller
-
-                                    name="firstname"
-                                    control={control}
-                                    render={({ field }) => (
-                                        <Input
-                                            type="text"
-                                            placeholder="Imię"
-                                            {...field}
-                                            className="w-full"
-                                        />
-                                    )
-                                    }
-                                />
-                                {errors.firstname && (
-                                    <p className="text-red-500 text-sm">{errors.firstname.message}</p>
-                                )}
-
-
-                                <Controller
-                                    name="phone"
-                                    control={control}
-                                    render={({ field }) => (
-                                        <Input
-                                            type="text"
-                                            placeholder="Numer kontaktowy"
-                                            {...field}
-                                        />
+                                        name="firstname"
+                                        control={control}
+                                        render={({ field }) => (
+                                            <Input
+                                                type="text"
+                                                placeholder="Imię"
+                                                {...field}
+                                                className="w-full" onBlur={() => trigger("firstname")}
+                                            />
+                                        )
+                                        }
+                                    />
+                                    {errors.firstname && (<motion.div initial={{ opacity: 0 }}
+                                        animate={{
+                                            opacity: 1,
+                                            transition: { delay: 0.1, duration: 0.4, ease: "easeIn" },
+                                        }}>
+                                        <p className="text-red-500 text-sm px-1">{errors.firstname.message}</p>
+                                    </motion.div>
                                     )}
-                                />
-                                {errors.phone && (
-                                    <p className="text-red-500 text-sm">{errors.phone.message}</p>
-                                )}
+                                </div>
+                                <div className="w-full flex flex-col">
 
+                                    <Controller
+                                        name="phone"
+                                        control={control}
+                                        render={({ field }) => (
+                                            <Input
+                                                type="text"
+                                                placeholder="Numer kontaktowy"
+                                                {...field}
+                                                onBlur={() => trigger("phone")}
+                                            />
+                                        )}
+                                    />
+                                    {errors.phone && (<motion.div initial={{ opacity: 0 }}
+                                        animate={{
+                                            opacity: 1,
+                                            transition: { delay: 0.1, duration: 0.4, ease: "easeIn" },
+                                        }}>
+                                        <p className="text-red-500 text-sm px-1">{errors.phone.message}</p>
+                                    </motion.div>
+
+                                    )}
+                                </div>
                             </div>
 
                             {/** Select */}
@@ -193,7 +235,9 @@ export default function Contact() {
                                         <Textarea
                                             className="h-[200px]"
                                             placeholder="Napisz wiadomość do nas"
+
                                             {...field}
+                                            onBlur={() => trigger("message")}
                                         />
                                     )}
                                 />
@@ -225,8 +269,19 @@ export default function Contact() {
                         </ul>
                     </div>
                 </div>
-            </div>
-        </motion.section>
+
+                <Toaster position="bottom-center" toastOptions={{
+                    style: {
+                        fontSize: '18px',        // Zwiększenie rozmiaru czcionki
+                        padding: '16px',         // Zwiększenie paddingu
+                        background: '#333',      // Tło powiadomienia
+                        color: '#fff',           // Kolor tekstu
+                        borderRadius: '8px',     // Zaokrąglenie rogów
+                    },
+                    duration: 5000,
+                }} />
+            </div >
+        </motion.section >
     );
 }
 

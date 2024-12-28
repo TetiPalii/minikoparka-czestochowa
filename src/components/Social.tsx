@@ -19,7 +19,7 @@ const social = [
 export default function Social({ containerStyles, iconStyles }: { containerStyles?: string, iconStyles?: string }) {
     return <div className={containerStyles}>
         {social.map((item, idx) => {
-            return <Link key={idx} href={item.path} className={iconStyles}>{item.icon}</Link>
+            return <Link target="_blank" rel="noopener noreferrer" key={idx} href={item.path} className={iconStyles}>{item.icon}</Link>
         })}
     </div>
 }
