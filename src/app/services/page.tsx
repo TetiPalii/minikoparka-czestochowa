@@ -59,7 +59,7 @@ export default function Services() {
                     });
                 }
             }
-        }, services.length * 300 + 500);
+        }, services.length * 300 + 4000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -91,7 +91,7 @@ export default function Services() {
                             >
 
                                 <div className="hidden sm:flex absolute h-full w-full overflow-hidden opacity-[60%]">
-                                    <Image src={service.img} alt={service.title} quality={100} className="object-cover rounded-xl w-full" height={150} width="500" />
+                                    <Image src={service.img} alt={service.title} quality={100} className="object-cover rounded-xl " fill sizes="(max-width:768px):80vw, 30vw" priority />
                                 </div>
                                 <div className="z-20">
                                     <h2 className="text-xl md:text-2xl font-bold duration-500 uppercase text-center ">

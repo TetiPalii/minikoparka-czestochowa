@@ -9,7 +9,7 @@ export default function Photo() {
             {/**image */}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" } }}
                 className="w-[280px] h-[280px] xl:h-[490px] xl:w-[490px] mix-blend-lighten absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                <Image src="/mainFoto.jpeg" alt="minidigger" quality={100} priority className="object-cover rounded-full " fill />
+                <Image src="/mainFoto.jpeg" alt="minidigger" quality={100} priority className="object-cover rounded-full " fill sizes="(max-widh:768px)80vw,50vw" />
 
             </motion.div>
 

@@ -8,11 +8,11 @@ const social = [
     },
     {
         icon: <FaTelegram />,
-        path: ""
+        path: "https://t.me/Neonil_Palii"
     },
     {
         icon: <FaWhatsapp />,
-        path: ""
+        path: "https://wa.me/48512419036"
     },
 ]
 
