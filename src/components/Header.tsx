@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Nav from "./Nav";
-import { Button } from "./ui/button";
 import MobilNav from "./MobilNav";
 
 export default function Header() {
@@ -15,11 +14,11 @@ export default function Header() {
                 </h1>
             </Link>
 
-            {/* desktop nav and cooperation button */}
+            {/* desktop nav  */}
 
             <div className="hidden xl:flex items-center gap-8">
                 <Nav />
-                {/* <Button>Współpraca</Button> */}
+
             </div>
 
             { /**mobile nav */}

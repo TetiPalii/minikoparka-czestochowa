@@ -2,9 +2,6 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
     try {
-     
-  
-      // Parsowanie danych z ciała żądania
       const body = await request.json();
      
   
@@ -13,11 +10,10 @@ export async function POST(request: Request) {
       const TELEGRAM_BOT_TOKEN = "8054220409:AAGjHid8-2pI-B93VIDT2l2hYoCX0C7vUu0";
       const CHAT_ID = "1306260720";
   
-      const telegramMessage = `Wiadomość ze stront Kopię: \n- Mam na imię ${firstname}\n- mój numer kontaktowy to: ${phone}\n- Wybrano usługę: ${service || "Nie podano"}\n-${message || "-"}`;
+      const telegramMessage = `Wiadomość ze strony Kopię: \n- Mam na imię ${firstname}\n- mój numer kontaktowy to: ${phone}\n- Wybrano usługę: ${service || "Nie podano"}\n-${message || "-"}`;
 
       const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-  
-      console.log("Wiadomość do Telegrama:", telegramMessage);
+
   
       const response = await fetch(url, {
         method: "POST",
@@ -31,16 +27,14 @@ export async function POST(request: Request) {
         }),
       });
   
-      console.log("Odpowiedź od Telegram API:", response.status);
-  
       if (response.ok) {
         
         return NextResponse.json({
           success: true,
-          message: "Wiadomość wysłana na Telegram!",
+          message: "Wiadomość wysłana, oczekuj na kontakt  :)",
         });
       } else {
-        console.error("Błąd podczas wysyłania wiadomości do Telegrama.");
+        console.error("Błąd podczas wysyłania wiadomości.");
         return NextResponse.json(
           {
             success: false,
@@ -61,8 +55,6 @@ export async function POST(request: Request) {
     }
   }
   
-
-// import { NextRequest, NextResponse } from "next/server";
 
 // interface RequestBody{
 //     firstname: string;

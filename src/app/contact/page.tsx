@@ -1,4 +1,5 @@
 "use client";
+
 import toast, { Toaster } from "react-hot-toast";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
@@ -130,6 +131,7 @@ export default function Contact() {
         >
             <div className="container mx-auto">
                 <div className="flex flex-col xl:flex-row gap-[30px]">
+
                     {/** Form */}
                     <div className="order-2 xl:h-[54%] xl:order-none">
                         <form
@@ -272,11 +274,11 @@ export default function Contact() {
 
                 <Toaster position="bottom-center" toastOptions={{
                     style: {
-                        fontSize: '18px',        // Zwiększenie rozmiaru czcionki
-                        padding: '16px',         // Zwiększenie paddingu
-                        background: '#333',      // Tło powiadomienia
-                        color: '#fff',           // Kolor tekstu
-                        borderRadius: '8px',     // Zaokrąglenie rogów
+                        fontSize: '18px',
+                        padding: '16px',
+                        background: '#333',
+                        color: '#fff',
+                        borderRadius: '8px',
                     },
                     duration: 5000,
                 }} />
@@ -284,69 +286,3 @@ export default function Contact() {
         </motion.section >
     );
 }
-
-{/** 
-    export default function Contact() {
-    return <motion.section initial={{ opacity: 0 }} animate={{
-        opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: 'easeIn' }
-    }} className="py-6">
-        <div className="container mx-auto">
-            <div className="flex flex-col xl:flex-row gap-[30px]">
-                {/**form
-                <div className="order-2 xl:h-[54%] xl:order-none">
-                    <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
-                        <h3 className="text-3xl text-center text-accent">
-                            Skontaktuj się z nami
-                        </h3>
-                        <p className="text-white/60 text-base text-center">Indywidualna wycena na podstawie zdjęć oraz szczegółowego opisu. Konsułtacja, doradztwo oraz umówienie się na termin. <br />Zapraszamy!</p>
-                        <div className="gap-6 grid grid-cols-1 md:grid-cols-2">
-                            <Input type="firstname" placeholder="Imię" />
-                            <Input type="phone" placeholder="Numer kontaktowy" />
-                        </div>
-
-                        
-                        <Select>
-                            <SelectTrigger className="w-full">
-                                <SelectValue placeholder="Proszę wybrać usługę" />
-                            </SelectTrigger>
-                            <SelectContent className="min-w-[300px] max-w-full w-auto">
-                                <SelectGroup>
-                                    <SelectLabel>
-                                        Proszę wybrać usługę
-                                    </SelectLabel>
-                                    {services.map(({ title }, idx) => { return <SelectItem key={idx} value={title} className="break-words whitespace-normal">{title}</SelectItem> })}
-
-                                </SelectGroup>
-                            </SelectContent>
-                        </Select>
-                       
-                        <Textarea className="h-[200px]" placeholder="Napisz  wiadomość do nas" />
-                        <Button size="lg" className="max-w-40">Wyślij</Button>
-                    </form>
-                </div>
-
-             
-                <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
-                    <ul className="flex flex-col gap-10">
-                        {
-                            info.map((item, idx) => {
-                                return <li key={idx} className="flex  items-center gap-6">
-                                    <div className="p-4 bg-[#27272c] text-accent rounded-xl flex items-center justify-center">
-                                        <div className="text-[28px]">{item.icon}</div>
-                                    </div>
-
-                                    <div>
-                                        <p>{item.description}</p>
-                                    </div>
-
-                                </li>
-                            })
-                        }
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </motion.section>
-}
-*/}

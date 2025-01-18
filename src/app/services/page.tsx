@@ -1,6 +1,5 @@
 "use client";
-import { BsArrowDownRight } from "react-icons/bs";
-import Link from "next/link";
+
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
@@ -124,81 +123,3 @@ export default function Services() {
     );
 }
 
-/** 
-export default function Services() {
-    const lastItemRef = useRef<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            if (lastItemRef.current) {
-                const rect = lastItemRef.current.getBoundingClientRect();
-                const isVisible =
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <=
-                    (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <=
-                    (window.innerWidth || document.documentElement.clientWidth);
-
-                if (!isVisible) {
-                    lastItemRef.current.scrollIntoView({
-                        behavior: "smooth",
-                        block: "end",
-                    });
-                }
-            }
-        }, services.length * 300 + 500); // Czas trwania animacji wszystkich elementów + dodatkowe opóźnienie
-
-        return () => clearTimeout(timer);
-    }, []);
-    return (
-        <section className="flex flex-col justify-center py-12 ">
-            <h1 className="h1 text-center mb-32">Wykonujemy:</h1>
-            <div className="container mx-auto">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{
-                        opacity: 1,
-                        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-                    }}
-                    className="grid grid-cols-1 gap-[60px]"
-                >
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0 }}
-                            animate={{
-                                opacity: 1,
-                                transition: { delay: index + 2, ease: "easeInOut" },
-                            }}
-                            className="flex flex-col flex-1 justify-center items-center gap-6 group hover:text-outline-hover transition-all duration-500 cursor-pointer"
-                            ref={index === services.length - 1 ? lastItemRef : null}
-                        >
-                            <div>
-                                <h2 className="text-xl font-bold group-hover:text-accent transition-all duration-500 uppercase text-center">
-                                    {service.title}
-                                </h2>
-                            </div>
-                            <motion.div
-                                style={{
-                                    height: "1px", // Wysokość borderu
-                                    backgroundColor: "rgba(255, 255, 255, 0.2)", // Kolor borderu
-                                }}
-
-                                initial={{ opacity: 0, width: "0%" }}
-                                animate={{ width: "100%", opacity: 1 }}
-                                transition={{
-                                    duration: 1.5,
-                                    ease: "easeInOut",
-                                    delay: index + 2
-                                }}
-
-                            />
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </div>
-        </section>
-    );
-}
-*/

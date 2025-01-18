@@ -18,11 +18,6 @@ const links = [
         name: "kontakt",
         path: "/contact"
     },
-
-    // {
-    //     name: "opinie",
-    //     path: "/opinion"
-    // },
 ]
 
 export default function Nav() {
