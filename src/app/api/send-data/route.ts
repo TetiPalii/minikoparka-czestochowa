@@ -3,12 +3,13 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
     try {
       const body = await request.json();
-     
+      const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+      const CHAT_ID = process.env.CHAT_ID;
+
   
       const { firstname, phone, service, message } = body;
   
-      const TELEGRAM_BOT_TOKEN = "8054220409:AAGjHid8-2pI-B93VIDT2l2hYoCX0C7vUu0";
-      const CHAT_ID = "1306260720";
+    
   
       const telegramMessage = `Wiadomość ze strony Kopię: \n- Mam na imię ${firstname}\n- mój numer kontaktowy to: ${phone}\n- Wybrano usługę: ${service || "Nie podano"}\n-${message || "-"}`;
 
