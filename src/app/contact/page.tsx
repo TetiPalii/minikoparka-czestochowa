@@ -109,8 +109,12 @@ export default function Contact() {
                 } else {
                     alert("Wystąpił problem z wysyłką danych.");
                 }
-            } catch (error: any) {
-                alert("Błąd: " + error.message);
+            } catch (error) {
+                if (error instanceof Error) {
+                    alert("Błąd: " + error.message);
+                } else {
+                    alert("Wystąpił nieznany błąd.");
+                }
             }
         };
 

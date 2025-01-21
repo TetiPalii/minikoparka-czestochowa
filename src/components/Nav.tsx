@@ -2,8 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Button } from "./ui/button";
-import { FaPhoneFlip } from "react-icons/fa6";
+
 
 const links = [
     {

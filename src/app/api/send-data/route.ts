@@ -45,14 +45,19 @@ export async function POST(request: Request) {
         );
       }
     } catch (error: any) {
-      console.error("Wystąpił błąd:", error.message);
-      return NextResponse.json(
-        {
-          success: false,
-          error: error.message,
-        },
-        { status: 500 }
-      );
+      if (error instanceof Error) {
+        console.error("Wystąpił błąd:", error.message);
+        return NextResponse.json(
+          {
+            success: false,
+            error: error.message,
+          },
+          { status: 500 }
+        );
+      }
+      else {
+        alert("Wystąpił nieznany błąd.");
+      }
     }
   }
   
