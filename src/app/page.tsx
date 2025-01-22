@@ -47,8 +47,8 @@ export default function Home() {
         </div>
       </div>
       <Stats />
-      <div className="text-center flex justify-center items-center">
-        <p className="max-w-[500px] mb-5 text-white/80  xl:hidden">Kompleksowe usługi ziemne w Częstochowie i okolicach! Specjalizujemy się w pracach ziemnych z wykorzystaniem minikoparki, wywrotki, glebogryzarki i innych niezbędnych maszyn. Zapewniamy indywidualną wycenę, terminowość i pełne dostosowanie do Twoich potrzeb. Skontaktuj się z nami i zaufaj profesjonalistom!</p>
+      <div className="text-center flex justify-center items-center p-4">
+        <p className="max-w-[500px] mb-5 text-white/80   xl:hidden">Kompleksowe usługi ziemne w Częstochowie i okolicach! Specjalizujemy się w pracach ziemnych z wykorzystaniem minikoparki, wywrotki, glebogryzarki i innych niezbędnych maszyn. Zapewniamy indywidualną wycenę, terminowość i pełne dostosowanie do Twoich potrzeb. Skontaktuj się z nami i zaufaj profesjonalistom!</p>
       </div>
     </main>
   );
