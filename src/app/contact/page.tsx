@@ -54,12 +54,7 @@ const schema = z.object({
         .string()
         .min(3, "Imię musi mieć co najmniej 3 litery")
         .regex(/^[a-zA-ZąćęłńóśźżĄĘŁŃÓŚŹŻ]+$/, "Imię może zawierać tylko litery"),
-    phone: z
-        .string()
-        .regex(
-            /^\+48\s?\d{3}[-\s]?\d{3}[-\s]?\d{3}$/,
-            "Numer telefonu musi zaczynać się z +48"
-        ),
+    phone: z.string().regex(/^\d{9}$/, "Numer telefonu musi zawierać dokładnie 9 cyfr."),
     service: z.string().optional(),
     message: z.string().optional(),
 });
@@ -72,6 +67,7 @@ export default function Contact() {
         formState: { errors },
         trigger,
         reset,
+
     } = useForm({
         resolver: zodResolver(schema),
         defaultValues: {
@@ -80,7 +76,7 @@ export default function Contact() {
             service: "",
             message: "",
         },
-        mode: "onChange"
+        mode: "onBlur"
     });
     const onSubmit = (clientData: {
         firstname: string,
@@ -124,6 +120,7 @@ export default function Contact() {
 
 
 
+
     return (
         <motion.section
             initial={{ opacity: 0 }}
@@ -160,7 +157,8 @@ export default function Contact() {
                                                 type="text"
                                                 placeholder="Imię"
                                                 {...field}
-                                                className="w-full" onBlur={() => trigger("firstname")}
+                                                className="w-full"
+                                                onBlur={() => trigger("firstname")}
                                             />
                                         )
                                         }
@@ -185,6 +183,7 @@ export default function Contact() {
                                                 placeholder="Numer kontaktowy"
                                                 {...field}
                                                 onBlur={() => trigger("phone")}
+
                                             />
                                         )}
                                     />
@@ -194,9 +193,11 @@ export default function Contact() {
                                             transition: { delay: 0.1, duration: 0.4, ease: "easeIn" },
                                         }}>
                                         <p className="text-red-500 text-sm px-1">{errors.phone.message}</p>
+
                                     </motion.div>
 
-                                    )}
+                                    )
+                                    }
                                 </div>
                             </div>
 
