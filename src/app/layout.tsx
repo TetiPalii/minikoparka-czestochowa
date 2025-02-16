@@ -3,7 +3,7 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
-import StairTransition from "@/components/StairTransition";
+
 
 const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -16,6 +16,7 @@ const jetBrainsMono = JetBrains_Mono({
 //   description: "Usługi Minikoparką. Roboty ziemne. Neonil Palii.",
 // };
 export const metadata: Metadata = {
+
   title: "Minikoparka w Częstochowie - Wykopy, Drenaże, Niwelacje",
   description: "Skozystaj z profesjonalnych usług minikoparką w Częstochowie: wykopy pod fundamenty, drenaże, odwodnienia, niwelacje terenu, usuwanie korzeni, prace ogrodowe oraz więcej. Skontaktuj się z nami już dziś! Sprawdź całą ofertę!",
   keywords: [
@@ -63,7 +64,9 @@ export const metadata: Metadata = {
 export const viewport = {
   width: "device-width",
   initialScale: 1.0,
-  maximumScale: 1.0,
+  maximumScale: 5.0,
+  userScalable: "yes"
+
 };
 
 export default function RootLayout({
@@ -72,12 +75,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pl">
       <body
         className={`${jetBrainsMono.variable} `}
       >
         <Header />
-        <StairTransition />
+
         <PageTransition>
           {children}
         </PageTransition>

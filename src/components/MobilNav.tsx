@@ -13,11 +13,11 @@ const links = [
     },
     {
         name: "usługi",
-        path: "/services"
+        path: "/uslugi-minikoparka-czestochowa"
     },
     {
         name: "kontakt",
-        path: "/contact"
+        path: "/kontakt-minikoparka-czestochowa"
     },
 
     // {
