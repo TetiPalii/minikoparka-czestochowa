@@ -5,14 +5,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 
-import { Metadata } from "next";
-
-
-export const metadata: Metadata = {
-    alternates: {
-        canonical: "https://www.minikoparka-wykopy.pl/uslugi-minikoparka-czestochowa"
-    },
-}
 const services = [
     {
         title: "Wykopy pod sieci energetyczne i telekomunikacyjne, fundamenty",

@@ -18,13 +18,9 @@ import { Button } from "@/components/ui/button";
 import { z } from "zod";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    alternates: {
-        canonical: "https://www.minikoparka-wykopy.pl/kontakt-minikoparka-czestochowa"
-    },
-}
+
+
 
 const info = [
     {
