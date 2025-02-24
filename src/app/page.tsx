@@ -5,8 +5,14 @@ import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 import Link from "next/link";
+import { Metadata } from "next";
 
 
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.minikoparka-wykopy.pl/"
+  },
+}
 export default function Home() {
   return (
     <main className="h-full">

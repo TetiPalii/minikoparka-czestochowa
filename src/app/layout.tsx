@@ -19,9 +19,7 @@ export const metadata: Metadata = {
 
   title: "Minikoparka w Częstochowie - Wykopy, Drenaże, Niwelacje",
   description: "Skozystaj z profesjonalnych usług minikoparką w Częstochowie: wykopy pod fundamenty, drenaże, odwodnienia, niwelacje terenu, usuwanie korzeni, prace ogrodowe oraz więcej. Skontaktuj się z nami już dziś! Sprawdź całą ofertę!",
-  alternates: {
-    canonical: "https://www.minikoparka-wykopy.pl/"
-  },
+
   keywords: [
     "usługi minikoparką Częstochowa",
     "wykopy fundamenty Częstochowa",
