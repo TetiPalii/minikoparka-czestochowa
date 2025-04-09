@@ -11,13 +11,10 @@ const jetBrainsMono = JetBrains_Mono({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
-// export const metadata: Metadata = {
-//   title: "Usługi Minikoparką",
-//   description: "Usługi Minikoparką. Roboty ziemne. Neonil Palii.",
-// };
+
 export const metadata: Metadata = {
 
-  title: "Minikoparka w Częstochowie - Wykopy, Drenaże, Niwelacje",
+  title: "Usługi minikoparką w Częstochowie - Wykopy, Drenaże, Niwelacje",
   description: "Skozystaj z profesjonalnych usług minikoparką w Częstochowie: wykopy pod fundamenty, drenaże, odwodnienia, niwelacje terenu, usuwanie korzeni, prace ogrodowe oraz więcej. Skontaktuj się z nami już dziś! Sprawdź całą ofertę!",
 
   keywords: [
@@ -31,13 +28,13 @@ export const metadata: Metadata = {
     "równanie terenu"
   ],
   authors: [
-    { name: "Neonil Palii. Kopię. Roboty Ziemne.", url: "" },
+    { name: "Neonil Palii. Kopię. Roboty Ziemne.", url: "https://minikoparka-wykopy.pl/" },
   ],
   openGraph: {
-    title: "Minikoparka w Częstochowie - Wykopy, Drenaże, Niwelacje",
+    title: "Usługi minikoparką w Częstochowie - Wykopy, Drenaże, Niwelacje",
     description: "Usługi minikoparką w Częstochowie: wykopy pod fundamenty, drenaże, odwodnienia, niwelacje terenu, usuwanie korzeni, prace ogrodowe oraz więcej. Skontaktuj się z nami już dziś! Sprawdź całą ofertę!",
 
-    url: "https://www.minikoparka-wykopy.pl/",
+    url: "https://minikoparka-wykopy.pl/",
     siteName: "Minikoparka w Częstochowie. Roboty ziemne.",
     images: [
       {
