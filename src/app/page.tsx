@@ -10,7 +10,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   alternates: {
-    canonical: "https://www.minikoparka-wykopy.pl/"
+    canonical: "https://minikoparka-wykopy.pl/"
   },
 }
 export default function Home() {
