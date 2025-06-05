@@ -76,7 +76,7 @@ export default function Services() {
                     className="grid grid-cols-1  md:grid-cols-2 gap-[60px]"
                 >
                     {services.map((service, index) => (
-                        <div className="sm:h-[150px] shadow-inner relative  " key={index}>
+                        <div className="min-h-[150px] shadow-inner relative  " key={index}>
 
 
                             <motion.div
@@ -90,7 +90,7 @@ export default function Services() {
                                 ref={index === services.length - 1 ? lastItemRef : null}
                             >
 
-                                <div className="hidden sm:flex absolute h-full w-full overflow-hidden opacity-[60%]">
+                                <div className="flex absolute h-full w-full overflow-hidden opacity-[60%]">
                                     <Image src={service.img} alt={service.title} quality={100} className="object-cover rounded-xl " fill sizes="(max-width:768px):80vw, 30vw" priority />
                                 </div>
                                 <div className="z-20">
@@ -98,22 +98,7 @@ export default function Services() {
                                         {service.title}
                                     </h2>
                                 </div>
-                                <motion.div
-                                    style={{
 
-                                        backgroundColor: "#00ff99", // Kolor borderu
-                                    }}
-
-                                    initial={{ opacity: 0, width: "0%" }}
-                                    animate={{ width: "100%", opacity: 1 }}
-                                    transition={{
-                                        duration: 1.5,
-                                        ease: "easeInOut",
-                                        delay: index + 2
-                                    }}
-                                    className="sm:hidden h-[0.4px]"
-
-                                />
                             </motion.div>
 
                         </div>

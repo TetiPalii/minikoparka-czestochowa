@@ -10,6 +10,10 @@ const links = [
         path: "/"
     },
     {
+        name: "wynajem",
+        path: "/wynajem"
+    },
+    {
         name: "usługi",
         path: "/uslugi-minikoparka-czestochowa"
     },

@@ -16,6 +16,10 @@ const links = [
         path: "/uslugi-minikoparka-czestochowa"
     },
     {
+        name: "wynajem",
+        path: "/wynajem"
+    },
+    {
         name: "kontakt",
         path: "/kontakt-minikoparka-czestochowa"
     },
