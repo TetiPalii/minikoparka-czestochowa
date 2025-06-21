@@ -6,9 +6,9 @@ import Image from "next/image"
 
 export default function Photo() {
     return <div className="h-full w-full relative">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 2, duration: 0.4, ease: "easeIn" } }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 0.5, duration: 0.4, ease: "easeIn" } }}>
             {/**image */}
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" } }}
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: 1, duration: 0.4, ease: "easeInOut" } }}
                 className="w-[280px] h-[280px] xl:h-[490px] xl:w-[490px] mix-blend-lighten absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
                 <Image src="/mainFoto.jpeg" alt="minidigger" quality={100} priority className="object-cover rounded-full " fill sizes="(max-widh:768px)80vw,50vw" />
 

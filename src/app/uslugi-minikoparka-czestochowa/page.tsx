@@ -67,12 +67,7 @@ export default function Services() {
         <section className="flex flex-col justify-center  pb-24 ">
             <h1 className="h1 text-center mb-24 ">Wykonujemy:</h1>
             <div className="container mx-auto">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{
-                        opacity: 1,
-                        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-                    }}
+                <div
                     className="grid grid-cols-1  md:grid-cols-2 gap-[60px]"
                 >
                     {services.map((service, index) => (
@@ -103,7 +98,7 @@ export default function Services() {
 
                         </div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );
