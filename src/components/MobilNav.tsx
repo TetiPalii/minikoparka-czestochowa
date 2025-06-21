@@ -41,7 +41,7 @@ export default function MobilNav() {
 
 
     return <Sheet open={isOpen} onOpenChange={setIsOpen}>
-        <SheetTrigger className="flex justify-center items-center text-[32px] text-accent">
+        <SheetTrigger className="flex justify-center items-center text-[32px] text-accent" aria-label="Otwórz nawigacyjne menu">
             <CiMenuFries />
         </SheetTrigger>
         <SheetContent className="flex flex-col">
