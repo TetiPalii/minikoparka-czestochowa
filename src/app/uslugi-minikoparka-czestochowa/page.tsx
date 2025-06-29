@@ -59,33 +59,33 @@ export default function Services() {
                     });
                 }
             }
-        }, services.length * 300 + 4000);
+        }, services.length * 300 + 1000);
 
         return () => clearTimeout(timer);
     }, []);
     return (
         <section className="flex flex-col justify-center  pb-24 ">
             <h1 className="h1 text-center mb-24 ">Wykonujemy:</h1>
-            <div className="container mx-auto">
+            <motion.div initial={{ opacity: 0 }}
+                animate={{
+                    opacity: 1,
+                    transition: { delay: 0.2, duration: 0.4, ease: "easeIn" },
+                }} className="container mx-auto">
                 <div
                     className="grid grid-cols-1  md:grid-cols-2 gap-[60px]"
                 >
                     {services.map((service, index) => (
-                        <div className="min-h-[150px] shadow-inner relative  " key={index}>
-
-
+                        <div className="min-h-[150px] shadow-inner relative " key={index}
+                        >
                             <motion.div
+                                initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { delay: index } }}
                                 key={index}
-                                initial={{ opacity: 0 }}
-                                animate={{
-                                    opacity: 1,
-                                    transition: { delay: index + 2, ease: "easeInOut" },
-                                }}
-                                className="  flex flex-col flex-1 justify-center items-center gap-2 duration-500 sm:h-full  "
+                                className="flex flex-col flex-1 justify-center items-center gap-2  sm:h-full"
                                 ref={index === services.length - 1 ? lastItemRef : null}
+                                style={{ willChange: 'opacity' }}
                             >
 
-                                <div className="flex absolute h-full w-full overflow-hidden opacity-[60%]">
+                                <div className="flex absolute h-full w-full overflow-hidden ">
                                     <Image src={service.img} alt={service.title} quality={100} className="object-cover rounded-xl " fill sizes="(max-width:768px):80vw, 30vw" loading="lazy" />
                                 </div>
                                 <div className="z-20">
@@ -99,8 +99,7 @@ export default function Services() {
                         </div>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }
-

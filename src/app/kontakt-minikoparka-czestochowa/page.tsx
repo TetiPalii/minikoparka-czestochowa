@@ -130,7 +130,7 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={{
                 opacity: 1,
-                transition: { delay: 0.5, duration: 0.4, ease: "easeIn" },
+                transition: { delay: 0.2, duration: 2, ease: "easeIn" },
             }}
             className="py-6"
         >
