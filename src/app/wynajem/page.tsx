@@ -1,5 +1,6 @@
 "use client"
 
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { TabsTrigger, Tabs, TabsList, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -8,23 +9,23 @@ const rentItems = [
     {
         title: "Agregaty prądotwórcze",
         img: "/agregat.jpeg",
-        description: "jednofazowy HONDA 5,5Kw"
+        description: "Agregaty prądotwórcze to urządzenia, które przekształcają energię mechaniczną w energię elektryczną."
     },
     {
         title: "Niwelator rotacyjny",
         img: "/agregat.jpeg",
-        description: "jednofazowy "
+        description: "Niwelator rotacyjny to urządzenie pomiarowe, które służy do wyznaczania poziomów i spadków terenu."
     },
 
     {
         title: "Przycinarka spalinowa",
         img: "/agregat.jpeg",
-        description: " HONDA 5,5Kw"
+        description: "Przycinarka spalinowa to narzędzie, które umożliwia precyzyjne cięcie różnych materiałów, takich jak drewno, metal czy tworzywa sztuczne."
     },
     {
         title: "Zagęszczarka",
         img: "/agregat.jpeg",
-        description: " 5,5Kw"
+        description: "Zagęszczarka to urządzenie służące do zagęszczania gruntu, asfaltu lub betonu."
     },
 ]
 
@@ -34,11 +35,12 @@ export default function Wynajem() {
         <motion.div initial={{ opacity: 0 }}
             animate={{
                 opacity: 1,
-                transition: { delay: 0.2, duration: 2, ease: "easeIn" },
-            }}>
-            <div className="container mx-auto flex items-center justify-center">
-                <Tabs className="flex flex-col gap-[60px] md:flex-row  " >
-                    <TabsList className="flex flex-col justify-center items-center max-w-[380px] w-full mx-auto" >
+                transition: { delay: 0, duration: 1.5, ease: "easeIn" },
+            }}
+            className="w-full flex items-center justify-center">
+            <div className="container mx-auto">
+                <Tabs className="flex flex-col gap-[20px] md:flex-row  " >
+                    <TabsList className="flex flex-col items-center w-full mx-auto gap-8" >
                         {rentItems.map(({ title }, index) => {
                             return <TabsTrigger key={index} value={title}>{title}</TabsTrigger>
 
@@ -48,8 +50,15 @@ export default function Wynajem() {
                     </TabsList>
                     {/* content */}
                     <div className="w-full min-h-[70vh]">
-                        {rentItems.map(({ title, description }, index) => {
-                            return <TabsContent key={index} className="w-full" value={title}>{description}</TabsContent>
+                        {rentItems.map(({ title, description, img }, index) => {
+                            return <TabsContent key={index} className="w-full" value={title}>
+                                <ScrollArea className="h-[400px]">
+                                    <div className="flex flex-col items-center justify-center gap-4">
+                                        <p className="text-base text-center " >{description}</p>
+                                        <Image src={img} alt={title} width={300} height={70} className="rounded-xl" />
+                                    </div>
+                                </ScrollArea>
+                            </TabsContent>
                         })}
                     </div>
                 </Tabs>

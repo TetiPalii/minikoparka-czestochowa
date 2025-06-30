@@ -85,11 +85,11 @@ export default function Services() {
                                 style={{ willChange: 'opacity' }}
                             >
 
-                                <div className="flex absolute h-full w-full overflow-hidden ">
-                                    <Image src={service.img} alt={service.title} quality={100} className="object-cover rounded-xl " fill sizes="(max-width:768px):80vw, 30vw" loading="lazy" />
+                                <div className="flex absolute h-full w-full overflow-hidden px-8">
+                                    <Image src={service.img} alt={service.title} quality={100} className="object-cover  rounded-xl " fill sizes="(max-width:768px):80vw, 30vw" loading="lazy" />
                                 </div>
                                 <div className="z-20">
-                                    <h2 className="text-xl md:text-2xl font-bold duration-500 uppercase text-center ">
+                                    <h2 className="text-xl md:text-xl text-white font-extrabold uppercase text-center">
                                         {service.title}
                                     </h2>
                                 </div>
