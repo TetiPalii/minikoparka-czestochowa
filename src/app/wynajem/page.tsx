@@ -13,8 +13,22 @@ const rentItems = [
     },
     {
         title: "Niwelator rotacyjny",
-        img: "/agregat.jpeg",
-        description: "Niwelator rotacyjny to urządzenie pomiarowe, które służy do wyznaczania poziomów i spadków terenu."
+        img: "/niwelator.jpeg",
+        description: [
+            "Laser obrotowy do całkowicie automatycznego poziomowania w pionie i poziomie oraz wyznaczania wypoziomowanego punktu w górę.",
+            "Spory zasięg działania – linia widoczna gołym okiem do 45 m, z detektorem do 320 m.",
+            "Funkcja lasera punktowego – ułatwia przenoszenie punktów w pionie.",
+            "Doskonała dokładność : ±0,5 mm na 10 m.",
+            "Ręczny tryb pojedynczego nachylenia.",
+            "Łatwe użytkowanie – komplet funkcji potrzebnych na budowie.",
+            "Zasilanie akumulatorowe.",
+            "Solidna, ogumowana konstrukcja – odporność na upadek z 2 m, klasa szczelności IP54.",
+            "Uchwyt naścienny – do montażu na ścianach, konstrukcjach metalowych i tyczkach.",
+            "Pilot zdalnego sterowania – samodzielna praca z urządzeniem.",
+            "Łata niwelacyjna.",
+            "Trójnóg z regulacją wysokości i spadków."
+        ]
+
     },
 
     {
@@ -25,7 +39,7 @@ const rentItems = [
     {
         title: "Zagęszczarka",
         img: "/agregat.jpeg",
-        description: "Zagęszczarka to urządzenie służące do zagęszczania gruntu, asfaltu lub betonu."
+        description: ""
     },
 ]
 
@@ -49,15 +63,21 @@ export default function Wynajem() {
                         })}
                     </TabsList>
                     {/* content */}
-                    <div className="w-full min-h-[70vh]">
+                    <div className="w-full min-h-[70vh] py-16 md:py-0">
                         {rentItems.map(({ title, description, img }, index) => {
-                            return <TabsContent key={index} className="w-full" value={title}>
-                                <ScrollArea className="h-[400px]">
-                                    <div className="flex flex-col items-center justify-center gap-4">
-                                        <p className="text-base text-center " >{description}</p>
-                                        <Image src={img} alt={title} width={300} height={70} className="rounded-xl" />
-                                    </div>
-                                </ScrollArea>
+                            return <TabsContent key={index} className="w-full" value={title} >
+
+                                {Array.isArray(description) ? <ul className="flex flex-col items-center md:items-start justify-center text-lg list-disc list-inside mb-6 text-center">
+                                    {description.map((item, idx) => {
+                                        return <li key={idx}>{item}</li>
+                                    })}
+                                </ul> : <p>{title}  </p>
+                                }
+                                <div className="flex flex-col items-center justify-center gap-4">
+
+                                    <Image src={img} alt={title} width={500} height={50} className="rounded-xl" />
+                                </div>
+
                             </TabsContent>
                         })}
                     </div>
