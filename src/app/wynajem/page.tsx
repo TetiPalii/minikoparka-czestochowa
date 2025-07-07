@@ -3,6 +3,7 @@
 import { TabsTrigger, Tabs, TabsList, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 const rentItems = [
     {
@@ -13,19 +14,20 @@ const rentItems = [
     {
         title: "Niwelator rotacyjny",
         img: "/niwelator.jpeg",
+        subtitle: "Charakterystyka urządzenia:",
         description: [
-            "Laser obrotowy do całkowicie automatycznego poziomowania w pionie i poziomie oraz wyznaczania wypoziomowanego punktu w górę.",
-            "Spory zasięg działania – linia widoczna gołym okiem do 45 m, z detektorem do 320 m.",
-            "Funkcja lasera punktowego – ułatwia przenoszenie punktów w pionie.",
-            "Doskonała dokładność : ±0,5 mm na 10 m.",
-            "Ręczny tryb pojedynczego nachylenia.",
-            "Łatwe użytkowanie – komplet funkcji potrzebnych na budowie.",
-            "Zasilanie akumulatorowe.",
-            "Solidna, ogumowana konstrukcja – odporność na upadek z 2 m, klasa szczelności IP54.",
-            "Uchwyt naścienny – do montażu na ścianach, konstrukcjach metalowych i tyczkach.",
-            "Pilot zdalnego sterowania – samodzielna praca z urządzeniem.",
-            "Łata niwelacyjna.",
-            "Trójnóg z regulacją wysokości i spadków."
+            "Laser obrotowy do całkowicie automatycznego poziomowania w pionie i poziomie oraz wyznaczania wypoziomowanego punktu",
+            "Spory zasięg działania – wiązka widoczna gołym okiem z ok. 45m i wychwytywana detektorem w promieniu aż do 320 m",
+            "Funkcja lasera punktowego",
+            "Doskonała dokładność – błąd pomiaru wynosi zaledwie +/-0,5mm na 10m",
+            "Ręczny tryb pojedynczego nachylenia",
+            "Łatwe użytkowanie – urządzenie posiada wszystkie zaawansowane funkcje potrzebne w miejscu pracy",
+            "Zasilanie akumulatorowe",
+            "Solidna konstrukcja – ogumowana rama gwarantuje odporność na upadek z wysokości 2m oraz szczelność na poziomie IP54",
+            "Uchwyt naścienny",
+            "Pilot do niwelatora – możliwość sterowania urządzeniem z odległości umożliwia całkowicie samodzielną pracę",
+            "Łata niwelacyjna 5 m",
+            "Trójnóg z możliwością regulowania wysokości oraz ustawienia spadków"
         ]
 
     },
@@ -43,6 +45,10 @@ const rentItems = [
 ]
 
 export default function Wynajem() {
+
+    const [expanded, setExpanded] = useState(false);
+
+
     return (<section className="flex flex-col items-center   h-screen text-3xl font-semibold">
         <h1 className="h1 text-center mb-24 mt-24">Oferujemy pod wynajem:</h1>
         <motion.div initial={{ opacity: 0 }}
@@ -62,16 +68,18 @@ export default function Wynajem() {
                         })}
                     </TabsList>
                     {/* content */}
-                    <div className="w-full min-h-[70vh] py-16 md:py-0">
-                        {rentItems.map(({ title, description, img }, index) => {
+                    <div className="w-full min-h-[70vh] py-6 md:py-0">
+                        {rentItems.map(({ title, description, img, subtitle }, index) => {
                             return <TabsContent key={index} className="w-full" value={title} >
-
-                                {Array.isArray(description) ? <ul className="flex flex-col items-center md:items-start justify-center text-lg list-disc list-inside mb-6 text-center">
+                                <h2 className="mb-4 text-center">{subtitle}</h2>
+                                {Array.isArray(description) ? <ul className="flex flex-col items-start md:items-start justify-center text-lg list-disc list-inside text-start">
                                     {description.map((item, idx) => {
-                                        return <li key={idx}>{item}</li>
+                                        return expanded ? (<li key={idx}>{item}</li>) : idx <= 2 && <li key={idx}>{item}</li>
+
                                     })}
-                                </ul> : <p>{title}  </p>
+                                </ul> : null
                                 }
+                                <button className="text-accent text-base mb-2" onClick={() => setExpanded(!expanded)}>{expanded ? "Zwiń    " : "Rozwiń"}</button>
                                 <div className="flex flex-col items-center justify-center gap-4">
 
                                     <Image src={img} alt={title} width={500} height={50} className="rounded-xl" />
