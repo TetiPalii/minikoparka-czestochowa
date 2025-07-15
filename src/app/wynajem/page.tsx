@@ -9,7 +9,28 @@ const rentItems = [
     {
         title: "Agregaty prądotwórcze",
         img: "/agregat.jpeg",
-        description: "Agregaty prądotwórcze to urządzenia, które przekształcają energię mechaniczną w energię elektryczną."
+        subtitle: "Agregaty trójfazowe umożliwiają zasilanie odbiorników na napięcie 400 V. Agregaty wyposażone w stabilizację napięcia tzw. AVR dedykowane są do zasilania odbiorników czułych na jakość prądu zasilania.",
+        description: [
+            "Częstotliwość: 50 Hz",
+            "Napięcie: 30 V",
+            "Moc znamionowa: 5,6 kW",
+            "Moc maksymalna: 6,2 kW",
+            "Silnik: Honda",
+            "Model: GX 390",
+            "Pojemność: 389 cm³",
+            "Chłodzenie: Powietrze",
+            "Cylindry: 1",
+            "Takt: 4",
+            "Miska oleju: 1,1 L",
+            "Rozruch: Manualny",
+            "Paliwo: Benzyna",
+            "Zbiornik: 6,1 L",
+            "Spalanie (Moc 75%): 2,7 L/h",
+            "Hałas Lwa: 97 dB(A)",
+            "Waga: 69 kg",
+            "Długość: 790 mm",
+            "Szerokość: 580 mm",
+            "Wysokość: 505 mm"]
     },
     {
         title: "Niwelator rotacyjny",
@@ -35,12 +56,35 @@ const rentItems = [
     {
         title: "Przycinarka spalinowa",
         img: "/agregat.jpeg",
-        description: "Przycinarka spalinowa to narzędzie, które umożliwia precyzyjne cięcie różnych materiałów, takich jak drewno, metal czy tworzywa sztuczne."
+        subtitle: "",
+        description: [
+            "Wielozadaniowa przecinarka do prac remontowych i budowlanych.",
+            "Ściernica korundowa ma średnicę 350 mm do cięcia na głębokość do 125 mm.",
+            "W wyposażeniu standardowym posiada system redukujący drgania STIHL, system filtrów o długiej żywotności, półautomatyczny system napinania paska klinowego.",
+            "Przecinarka TS gwarantuje precyzyjne i komfortowe prowadzenie noża.",
+            "Wygodny rozruch dzięki zastosowaniu zaworu bezpieczeństwa.",
+            "Prowadzone ręcznie lub na wózku prowadzącym FW 20.",
+            "Zalety przecinarki STIHL TS:",
+            "Łatwe uruchamianie.",
+            "Wysoki komfort użytkowania.",
+            "Lekka i solidna konstrukcja.",
+            "Precyzyjne i komfortowe cięcie.",
+            "Wysokie bezpieczeństwo pracy."
+        ],
     },
     {
         title: "Zagęszczarka",
+        subtitle: "Zagęszczarka Wacker Neuson",
         img: "/agregat.jpeg",
-        description: ""
+        description: [
+            "Wysoka wydajność: Maszyny te charakteryzują się dużą siłą zagęszczania, co pozwala na efektywne zagęszczanie różnych rodzajów podłoża.",
+            "Trwałość i niezawodność: Wykonane z wysokiej jakości materiałów, zagęszczarki Wacker Neuson są odporne na zużycie i uszkodzenia, co przekłada się na długą żywotność i niski koszt eksploatacji.",
+            "Ergonomia i komfort pracy: Wiele modeli posiada regulowaną wysokość uchwytu, amortyzację wibracji oraz intuicyjne sterowanie, co poprawia komfort pracy operatora i minimalizuje zmęczenie.",
+            "Efektywność paliwowa: Nowoczesne silniki zapewniają oszczędność paliwa, co przekłada się na niższe koszty eksploatacji.",
+            "Łatwość transportu i manewrowania: Wiele zagęszczarek Wacker Neuson wyposażonych jest w zintegrowane koła transportowe i/lub specjalne uchwyty, co ułatwia przemieszczanie maszyny na placu budowy.",
+            "Wszechstronność zastosowań: Zagęszczarki Wacker Neuson sprawdzają się w różnych zastosowaniach, od zagęszczania gruntu i piasku po ubijanie asfaltu i betonu."
+        ],
+
     },
 ]
 
