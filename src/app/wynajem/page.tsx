@@ -1,15 +1,18 @@
 "use client"
 
+import { Button } from "@/components/ui/button";
 import { TabsTrigger, Tabs, TabsList, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
+import { FaPhoneFlip } from "react-icons/fa6";
 
 const rentItems = [
     {
         title: "Agregaty prądotwórcze",
         img: "/agregat.jpeg",
-        subtitle: "Agregaty trójfazowe umożliwiają zasilanie odbiorników na napięcie 400 V. Agregaty wyposażone w stabilizację napięcia tzw. AVR dedykowane są do zasilania odbiorników czułych na jakość prądu zasilania.",
+        subtitle: "Charakterystyka urządzenia:",
         description: [
             "Częstotliwość: 50 Hz",
             "Napięcie: 30 V",
@@ -30,7 +33,8 @@ const rentItems = [
             "Waga: 69 kg",
             "Długość: 790 mm",
             "Szerokość: 580 mm",
-            "Wysokość: 505 mm"]
+            "Wysokość: 505 mm",
+            "Agregaty trójfazowe umożliwiają zasilanie odbiorników na napięcie 400 V. Agregaty wyposażone w stabilizację napięcia tzw. AVR dedykowane są do zasilania odbiorników czułych na jakość prądu zasilania."]
     },
     {
         title: "Niwelator rotacyjny",
@@ -56,7 +60,7 @@ const rentItems = [
     {
         title: "Przycinarka spalinowa",
         img: "/agregat.jpeg",
-        subtitle: "",
+        subtitle: "Charakterystyka urządzenia:",
         description: [
             "Wielozadaniowa przecinarka do prac remontowych i budowlanych.",
             "Ściernica korundowa ma średnicę 350 mm do cięcia na głębokość do 125 mm.",
@@ -86,6 +90,20 @@ const rentItems = [
         ],
 
     },
+    {
+        title: "Wibrator do betonu",
+        img: "/agregat.jpeg",
+        subtitle: "Charakterystyka urządzenia:",
+        description: [
+            "Zwiększenie wytrzymałości: usunięcie pęcherzy powietrza poprawia gęstość i spójność betonu, co przekłada się na jego wyższą wytrzymałość mechaniczną.",
+            "Poprawa jakości betonu: wibratory pomagają w równomiernym rozprowadzeniu mieszanki betonowej i zapobiegają segregacji składników, co skutkuje lepszą jakością gotowego betonu.",
+            "Ułatwienie pracy: dzięki wibratorom beton jest łatwiejszy w układaniu i formowaniu, co przyspiesza prace budowlane.",
+            "Lepsze zagęszczenie betonu pozwala na użycie mniejszej ilości cementu przy zachowaniu wymaganej wytrzymałości.",
+            "Wibratory pomagają w eliminacji porów, co prowadzi do zwiększenia szczelności betonu i jego odporności na przenikanie wody.",
+            "Zagęszczenie betonu wibratorem poprawia jego przyczepność do prętów zbrojeniowych, co ma kluczowe znaczenie dla klienta."
+        ],
+
+    }
 ]
 
 export default function Wynajem() {
@@ -105,7 +123,16 @@ export default function Wynajem() {
                 <Tabs className="flex flex-col gap-[20px] md:flex-row  " >
                     <TabsList className="flex flex-col items-center w-full mx-auto gap-8" >
                         {rentItems.map(({ title }, index) => {
-                            return <TabsTrigger key={index} value={title}>{title}</TabsTrigger>
+
+                            return <div key={index} className="w-full flex items-center justify-center data-[state=active]:bg-accent">
+                                <TabsTrigger value={title}>{title}</TabsTrigger>
+                                <Button variant="primary" className="bg-[#27272c] rounded-l-none rounded-r-xl" aria-label="" size={"sm"}>
+                                    <Link href={"tel:+48512419036"}>
+
+                                        <FaPhoneFlip />
+                                    </Link>
+                                </Button>
+                            </div>
 
 
 
