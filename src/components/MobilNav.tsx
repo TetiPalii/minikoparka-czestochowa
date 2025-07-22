@@ -17,11 +17,15 @@ const links = [
     },
     {
         name: "wynajem",
-        path: "/wynajem"
+        path: "/wynajem-sprzetu-czestochowa"
     },
     {
         name: "kontakt",
         path: "/kontakt-minikoparka-czestochowa"
+    },
+    {
+        name: "naprawa",
+        path: "/naprawa-serwis-minikoparki-czestochowa"
     },
 
     // {

@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { z } from "zod";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { title } from "process";
 
 
 
@@ -49,6 +50,8 @@ const services = [
     { title: "Niwelacje terenu, skarpowanie" },
     { title: "Prace ogrodowe" },
     { title: "Usuwanie korzeni" },
+    { title: "Wynajem sprzętu budowlanego" },
+    { title: "Serwis lub  naprawa" },
     { title: "Inne" },
 ];
 

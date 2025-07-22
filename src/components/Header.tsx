@@ -3,8 +3,8 @@ import Nav from "./Nav";
 import MobilNav from "./MobilNav";
 
 export default function Header() {
-    return <header className="py-8 xl:py-12 text-white">
-        <div className="container mx-auto flex justify-between items-center">
+    return <header className="py-8 xl:py-12 text-white fixed z-50 w-full bg-primary shadow-md">
+        < div className="container mx-auto flex justify-between items-center">
 
             {/**logo */}
             <Link href="/">
@@ -26,5 +26,5 @@ export default function Header() {
                 <MobilNav />
             </div>
         </div>
-    </header>
+    </header >
 }

@@ -15,8 +15,8 @@ const jetBrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
 
-  title: "Usługi minikoparką w Częstochowie - Wykopy, Drenaże, Niwelacje",
-  description: "Skozystaj z profesjonalnych usług minikoparką w Częstochowie: wykopy pod fundamenty, drenaże, odwodnienia, niwelacje terenu, usuwanie korzeni, prace ogrodowe oraz więcej. Skontaktuj się z nami już dziś! Sprawdź całą ofertę!",
+  title: "Usługi minikoparką w Częstochowie - Wynajem, Naprawa.",
+  description: "Skozystaj z profesjonalnych usług minikoparką w Częstochowie: wykopy pod fundamenty, drenaże, odwodnienia, niwelacje terenu, usuwanie korzeni, prace ogrodowe oraz więcej. Skontaktuj się z nami już dziś! Sprawdź całą ofertę! Oferujemy wynajem sprzętów  budowlanych oraz usługi naprawy  minikoparek",
 
   keywords: [
     "usługi minikoparką Częstochowa",
@@ -26,17 +26,24 @@ export const metadata: Metadata = {
     "minikoparka Częstochowa",
     "prace ogrodowe minikoparką",
     "skarpowanie pod kostkę brukową",
-    "równanie terenu"
+    "równanie terenu",
+    "wynajem sprzętu Częstochowa",
+    "wynajem agregat prądotwórczy Częstochowa",
+    "wynajem zagęszczarka Częstochowa",
+    "wynajem niwelator Częstochowa",
+    "wynajem wibrator do betonu Częstochowa",
+    "wynajem przycinarka spalinowa Częstochowa",
+    "naprawa  minikoparki Częstochowa"
   ],
   authors: [
     { name: "Neonil Palii. Kopię. Roboty Ziemne.", url: "https://minikoparka-wykopy.pl/" },
   ],
   openGraph: {
     title: "Usługi minikoparką w Częstochowie - Wykopy, Drenaże, Niwelacje",
-    description: "Usługi minikoparką w Częstochowie: wykopy pod fundamenty, drenaże, odwodnienia, niwelacje terenu, usuwanie korzeni, prace ogrodowe oraz więcej. Skontaktuj się z nami już dziś! Sprawdź całą ofertę!",
+    description: "Usługi minikoparką w Częstochowie: wykopy pod fundamenty, drenaże, odwodnienia, niwelacje terenu, usuwanie korzeni, prace ogrodowe oraz więcej. Skontaktuj się z nami już dziś! Sprawdź całą ofertę!Oferujemy wynajem sprzętów  budowlanych oraz usługi naprawy  minikoparek.",
 
     url: "https://minikoparka-wykopy.pl/",
-    siteName: "Minikoparka w Częstochowie. Roboty ziemne.",
+    siteName: "Minikoparka w Częstochowie. Naprawa oraz wynajem.",
     images: [
       {
         url: "https://console.cloudinary.com/console/c-a9be88117dd307e4237e7c71ea6029/media_library/search/asset/c587ede31455c082b93a986e1edb2bf7/manage?q=&view_mode=mosaic&context=manage",
@@ -80,11 +87,11 @@ export default function RootLayout({
         className={`${jetBrainsMono.variable} `}
       >
         <Header />
+        <main className="h-full pt-44">
 
+          {children}
 
-        {children}
-
-
+        </main>
       </body>
     </html>
   );

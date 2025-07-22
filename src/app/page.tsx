@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 }
 export default function Home() {
   return (
-    <main className="h-full">
+    <>
       <div className="container mx-auto h-full">
         <div className="flex flex-col xl:flex-row items-center justify-between  xl:pb-8">
 
@@ -24,7 +24,11 @@ export default function Home() {
             <span className="text-xl">Neonil Palii </span>
             <h1 className="h1 mb-6">Roboty ziemne<br /> <span className="text-accent">Usługi minikoparką </span>
             </h1>
-            <p className="max-w-[500px] mb-5 text-white/80 hidden xl:block">Kompleksowe usługi ziemne w Częstochowie i okolicach! Specjalizujemy się w pracach ziemnych z wykorzystaniem minikoparki, wywrotki, glebogryzarki i innych niezbędnych maszyn. Zapewniamy indywidualną wycenę, terminowość i pełne dostosowanie do Twoich potrzeb. Skontaktuj się z nami i zaufaj profesjonalistom!</p>
+            <p className="max-w-[500px] mb-5 text-white/80 hidden xl:block">Kompleksowe usługi ziemne w Częstochowie i okolicach! Specjalizujemy się w pracach ziemnych z wykorzystaniem minikoparki, wywrotki, glebogryzarki i innych niezbędnych maszyn. Zapewniamy indywidualną wycenę, terminowość i pełne dostosowanie do Twoich potrzeb. Skontaktuj się z nami i zaufaj profesjonalistom!
+              <br />Dodatkowo oferujemy:
+              Wynajem <Link href={"/wynajem-sprzetu-czestochowa"} className="text-accent">sprzętu budowlanego</Link>.
+
+              Serwis i naprawę minikoparek.</p>
             {/**button and socials */}
             <div className="flex flex-col xl:flex-row items-center gap-8">
               <Button variant="outline" className="uppercase flex items-center gap-2" aria-label="" size={"lg"}>
@@ -53,6 +57,6 @@ export default function Home() {
       <div className="text-center flex justify-center items-center p-4">
         <p className="max-w-[500px] mb-5 text-white/80   xl:hidden">Kompleksowe usługi ziemne w Częstochowie i okolicach! Specjalizujemy się w pracach ziemnych z wykorzystaniem minikoparki, wywrotki, glebogryzarki i innych niezbędnych maszyn. Zapewniamy indywidualną wycenę, terminowość i pełne dostosowanie do Twoich potrzeb. Skontaktuj się z nami i zaufaj profesjonalistom!</p>
       </div>
-    </main>
+    </>
   );
 }

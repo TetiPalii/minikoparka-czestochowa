@@ -79,7 +79,7 @@ const rentItems = [
     {
         title: "Zagęszczarka",
         subtitle: "Zagęszczarka Wacker Neuson",
-        img: "/agregat.jpeg",
+        img: "/zageszczarka.jpeg",
         description: [
             "Wysoka wydajność: Maszyny te charakteryzują się dużą siłą zagęszczania, co pozwala na efektywne zagęszczanie różnych rodzajów podłoża.",
             "Trwałość i niezawodność: Wykonane z wysokiej jakości materiałów, zagęszczarki Wacker Neuson są odporne na zużycie i uszkodzenia, co przekłada się na długą żywotność i niski koszt eksploatacji.",
@@ -112,7 +112,7 @@ export default function Wynajem() {
 
 
     return (<section className="flex flex-col items-center   h-screen text-3xl font-semibold">
-        <h1 className="h1 text-center mb-24 mt-24">Oferujemy pod wynajem:</h1>
+        <h1 className="h1 text-center mb-24 ">Oferujemy pod wynajem:</h1>
         <motion.div initial={{ opacity: 0 }}
             animate={{
                 opacity: 1,

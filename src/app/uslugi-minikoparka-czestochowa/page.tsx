@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const services = [
@@ -88,11 +89,11 @@ export default function Services() {
                                 <div className="flex absolute h-full w-full overflow-hidden px-8">
                                     <Image src={service.img} alt={service.title} quality={100} className="object-cover  rounded-xl " fill sizes="(max-width:768px):80vw, 30vw" loading="lazy" />
                                 </div>
-                                <div className="z-20">
+                                <Link href={'/kontakt-minikoparka-czestochowa'} className="z-20 cursor-pointer hover:underline">
                                     <h2 className="text-xl md:text-xl text-white font-extrabold uppercase text-center">
                                         {service.title}
                                     </h2>
-                                </div>
+                                </Link>
 
                             </motion.div>
 
