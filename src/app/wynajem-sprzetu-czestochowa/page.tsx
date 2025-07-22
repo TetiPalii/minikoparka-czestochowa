@@ -5,7 +5,7 @@ import { TabsTrigger, Tabs, TabsList, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 import { FaPhoneFlip } from "react-icons/fa6";
 
 const rentItems = [
