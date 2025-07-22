@@ -5,7 +5,7 @@ import { TabsTrigger, Tabs, TabsList, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { FaPhoneFlip } from "react-icons/fa6";
 
 const rentItems = [
@@ -59,7 +59,7 @@ const rentItems = [
 
     {
         title: "Przycinarka spalinowa",
-        img: "/agregat.jpeg",
+        img: "",
         subtitle: "Charakterystyka urządzenia:",
         description: [
             "Wielozadaniowa przecinarka do prac remontowych i budowlanych.",
@@ -92,7 +92,7 @@ const rentItems = [
     },
     {
         title: "Wibrator do betonu",
-        img: "/agregat.jpeg",
+        img: "",
         subtitle: "Charakterystyka urządzenia:",
         description: [
             "Zwiększenie wytrzymałości: usunięcie pęcherzy powietrza poprawia gęstość i spójność betonu, co przekłada się na jego wyższą wytrzymałość mechaniczną.",
@@ -111,6 +111,7 @@ export default function Wynajem() {
     const [expanded, setExpanded] = useState(false);
 
 
+
     return (<section className="flex flex-col items-center   h-screen text-3xl font-semibold">
         <h1 className="h1 text-center mb-24 ">Oferujemy pod wynajem:</h1>
         <motion.div initial={{ opacity: 0 }}
@@ -124,9 +125,9 @@ export default function Wynajem() {
                     <TabsList className="flex flex-col items-center w-full mx-auto gap-8" >
                         {rentItems.map(({ title }, index) => {
 
-                            return <div key={index} className="w-full flex items-center justify-center data-[state=active]:bg-accent">
+                            return <div key={index} className="w-full flex items-center justify-center data-[state=active]:bg-accent" onClick={(() => { setExpanded(false) })}>
                                 <TabsTrigger value={title}>{title}</TabsTrigger>
-                                <Button variant="primary" className="bg-[#27272c] rounded-l-none rounded-r-xl" aria-label="" size={"sm"}>
+                                <Button variant="primary" className="bg-[#27272c] rounded-l-none rounded-r-xl" aria-label="phone" size={"sm"}>
                                     <Link href={"tel:+48512419036"}>
 
                                         <FaPhoneFlip />
@@ -150,10 +151,10 @@ export default function Wynajem() {
                                     })}
                                 </ul> : null
                                 }
-                                <button className="text-accent text-base mb-2" onClick={() => setExpanded(!expanded)}>{expanded ? "Zwiń    " : "Rozwiń"}</button>
+                                <button className="text-accent text-base mb-2" onClick={() => setExpanded(!expanded)}>{expanded ? "pokaż mniej" : "pokaż więcej"}</button>
                                 <div className="flex flex-col items-center justify-center gap-4">
 
-                                    <Image src={img} alt={title} width={500} height={50} className="rounded-xl" />
+                                    {img && <Image src={img} alt={title} width={500} height={50} className="rounded-xl" />}
                                 </div>
 
                             </TabsContent>
