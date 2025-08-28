@@ -18,6 +18,8 @@ import { Button } from "@/components/ui/button";
 import { z } from "zod";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useParams, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 
 
@@ -69,6 +71,8 @@ const schema = z.object({
 
 
 export default function Contact() {
+    const service: string | null = useSearchParams().get("service");
+
     const { handleSubmit,
         control,
         formState: { errors },
@@ -80,7 +84,7 @@ export default function Contact() {
         defaultValues: {
             firstname: "",
             phone: "",
-            service: "",
+            service: service || "",
             message: "",
         },
         mode: "onBlur"
@@ -124,9 +128,14 @@ export default function Contact() {
         sendFormData(clientData)
     };
 
-
-
-
+    useEffect(() => {
+        if (service) {
+            reset((prevValues) => ({
+                ...prevValues,
+                service: service,
+            }));
+        }
+    }, [service, reset]);
 
     return (
         <motion.section
@@ -146,9 +155,9 @@ export default function Contact() {
                             onSubmit={handleSubmit(onSubmit)}
                             className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
                         >
-                            <h3 className="text-3xl text-center text-accent">
+                            <h1 className="text-3xl text-center text-accent">
                                 Skontaktuj się z nami
-                            </h3>
+                            </h1>
                             <p className="text-white/60 text-base text-center">
                                 Indywidualna wycena na podstawie zdjęć oraz szczegółowego opisu.
                                 Konsułtacja, doradztwo oraz umówienie się na termin. <br />Zapraszamy!
@@ -216,9 +225,9 @@ export default function Contact() {
                                     render={({ field }) => (
                                         <Select onValueChange={field.onChange} value={field.value}>
                                             <SelectTrigger className="w-full">
-                                                <SelectValue placeholder="Proszę wybrać usługę" />
+                                                <SelectValue />
                                             </SelectTrigger>
-                                            <SelectContent className="min-w-[300px] max-w-full w-auto">
+                                            <SelectContent className="min-w-[300px] max-w-full w-auto" >
                                                 <SelectGroup>
                                                     <SelectLabel>Proszę wybrać usługę</SelectLabel>
                                                     {services.map(({ title }, idx) => (
@@ -226,6 +235,7 @@ export default function Contact() {
                                                             key={idx}
                                                             value={title}
                                                             className="break-words whitespace-normal"
+
                                                         >
                                                             {title}
                                                         </SelectItem>

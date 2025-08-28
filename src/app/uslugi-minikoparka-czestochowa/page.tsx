@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const services = [
     {
-        title: "Wykopy pod sieci energetyczne i telekomunikacyjne, fundamenty",
+        title: "Wykopy pod sieci energetyczne",
         img: "/networks.jpg"
     },
     {
@@ -89,7 +89,10 @@ export default function Services() {
                                 <div className="flex absolute h-full w-full overflow-hidden px-8">
                                     <Image src={service.img} alt={service.title} quality={100} className="object-cover  rounded-xl " fill sizes="(max-width:768px):80vw, 30vw" loading="lazy" />
                                 </div>
-                                <Link href={'/kontakt-minikoparka-czestochowa'} className="z-20 cursor-pointer hover:underline">
+                                <Link href={{
+                                    pathname: "/kontakt-minikoparka-czestochowa",
+                                    query: { service: service.title }
+                                }} className="z-20 cursor-pointer hover:underline">
                                     <h2 className="text-xl md:text-xl text-white font-extrabold uppercase text-center">
                                         {service.title}
                                     </h2>
