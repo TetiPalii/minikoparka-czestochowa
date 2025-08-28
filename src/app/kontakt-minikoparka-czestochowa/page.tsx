@@ -19,7 +19,7 @@ import { z } from "zod";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 
 
 
@@ -219,35 +219,37 @@ export default function Contact() {
 
                             {/** Select */}
                             <div>
-                                <Controller
-                                    name="service"
-                                    control={control}
-                                    render={({ field }) => (
-                                        <Select onValueChange={field.onChange} value={field.value}>
-                                            <SelectTrigger className="w-full">
-                                                <SelectValue />
-                                            </SelectTrigger>
-                                            <SelectContent className="min-w-[300px] max-w-full w-auto" >
-                                                <SelectGroup>
-                                                    <SelectLabel>Proszę wybrać usługę</SelectLabel>
-                                                    {services.map(({ title }, idx) => (
-                                                        <SelectItem
-                                                            key={idx}
-                                                            value={title}
-                                                            className="break-words whitespace-normal"
+                                <Suspense fallback={<div>Loading...</div>}>
+                                    <Controller
+                                        name="service"
+                                        control={control}
+                                        render={({ field }) => (
+                                            <Select onValueChange={field.onChange} value={field.value}>
+                                                <SelectTrigger className="w-full">
+                                                    <SelectValue />
+                                                </SelectTrigger>
+                                                <SelectContent className="min-w-[300px] max-w-full w-auto" >
+                                                    <SelectGroup>
+                                                        <SelectLabel>Proszę wybrać usługę</SelectLabel>
+                                                        {services.map(({ title }, idx) => (
+                                                            <SelectItem
+                                                                key={idx}
+                                                                value={title}
+                                                                className="break-words whitespace-normal"
 
-                                                        >
-                                                            {title}
-                                                        </SelectItem>
-                                                    ))}
-                                                </SelectGroup>
-                                            </SelectContent>
-                                        </Select>
+                                                            >
+                                                                {title}
+                                                            </SelectItem>
+                                                        ))}
+                                                    </SelectGroup>
+                                                </SelectContent>
+                                            </Select>
+                                        )}
+                                    />
+                                    {errors.service && (
+                                        <p className="text-red-500 text-sm">{errors.service.message}</p>
                                     )}
-                                />
-                                {errors.service && (
-                                    <p className="text-red-500 text-sm">{errors.service.message}</p>
-                                )}
+                                </Suspense>
                             </div>
 
                             {/** Textarea */}
