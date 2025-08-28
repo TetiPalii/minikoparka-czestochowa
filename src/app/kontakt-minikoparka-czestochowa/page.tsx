@@ -1,25 +1,9 @@
-"use client";
-
-import toast, { Toaster } from "react-hot-toast";
+"use client"
+import { Toaster } from "react-hot-toast";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { Input } from "@/components/ui/input";
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectValue,
-    SelectTrigger,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { z } from "zod";
-import { useForm, Controller } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
+import { ContactForm } from "@/components/ContactForm";
 
 
 
@@ -43,99 +27,9 @@ const info = [
     },
 ];
 
-const services = [
-    { title: "Wykopy pod sieci energetyczne" },
-    { title: "Wykopy pod sieci  telekomunikacyjne" },
-    { title: "Wykopy pod fundamenty" },
-    { title: "Wykopy pod sieci kanalizacyjne" },
-    { title: "Drenaże, odwodnienia" },
-    { title: "Niwelacje terenu, skarpowanie" },
-    { title: "Prace ogrodowe" },
-    { title: "Usuwanie korzeni" },
-    { title: "Wynajem sprzętu budowlanego" },
-    { title: "Serwis lub  naprawa" },
-    { title: "Inne" },
-];
-
-const schema = z.object({
-    firstname: z
-        .string()
-        .min(3, "Imię musi mieć co najmniej 3 litery")
-        .regex(/^[a-zA-ZąćęłńóśźżĄĘŁŃÓŚŹŻ]+$/, "Imię może zawierać tylko litery"),
-    phone: z.string().regex(/^\d{9}$/, "Numer telefonu musi zawierać dokładnie 9 cyfr."),
-    service: z.string().optional(),
-    message: z.string().optional(),
-});
-
-
 
 
 export default function Contact() {
-    const service: string | null = useSearchParams().get("service");
-
-    const { handleSubmit,
-        control,
-        formState: { errors },
-        trigger,
-        reset,
-
-    } = useForm({
-        resolver: zodResolver(schema),
-        defaultValues: {
-            firstname: "",
-            phone: "",
-            service: service || "",
-            message: "",
-        },
-        mode: "onBlur"
-    });
-    const onSubmit = (clientData: {
-        firstname: string,
-        phone: string,
-        service: string,
-        message: string,
-
-    }) => {
-        const sendFormData = async (data: {
-            firstname: string,
-            phone: string,
-            service: string,
-            message: string,
-
-        }) => {
-            try {
-                const response = await fetch('/api/send-data', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data),
-                });
-
-                if (response.ok) {
-                    toast.success("Wiadomość została wysłana!");
-                    reset();
-                } else {
-                    alert("Wystąpił problem z wysyłką danych.");
-                }
-            } catch (error) {
-                if (error instanceof Error) {
-                    alert("Błąd: " + error.message);
-                } else {
-                    alert("Wystąpił nieznany błąd.");
-                }
-            }
-        };
-
-        sendFormData(clientData)
-    };
-
-    useEffect(() => {
-        if (service) {
-            reset((prevValues) => ({
-                ...prevValues,
-                service: service,
-            }));
-        }
-    }, [service, reset]);
 
     return (
         <motion.section
@@ -151,131 +45,9 @@ export default function Contact() {
 
                     {/** Form */}
                     <div className="order-2 xl:h-[54%] xl:order-none">
-                        <form
-                            onSubmit={handleSubmit(onSubmit)}
-                            className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl"
-                        >
-                            <h1 className="text-3xl text-center text-accent">
-                                Skontaktuj się z nami
-                            </h1>
-                            <p className="text-white/60 text-base text-center">
-                                Indywidualna wycena na podstawie zdjęć oraz szczegółowego opisu.
-                                Konsułtacja, doradztwo oraz umówienie się na termin. <br />Zapraszamy!
-                            </p>
-                            <div className="gap-6 grid grid-cols-1 md:grid-cols-2 w-full">
-                                <div className="w-full flex flex-col">
-                                    <Controller
-
-                                        name="firstname"
-                                        control={control}
-                                        render={({ field }) => (
-                                            <Input
-                                                type="text"
-                                                placeholder="Imię"
-                                                {...field}
-                                                className="w-full"
-                                                onBlur={() => trigger("firstname")}
-                                            />
-                                        )
-                                        }
-                                    />
-                                    {errors.firstname && (<motion.div initial={{ opacity: 0 }}
-                                        animate={{
-                                            opacity: 1,
-                                            transition: { delay: 0.1, duration: 0.4, ease: "easeIn" },
-                                        }}>
-                                        <p className="text-red-500 text-sm px-1">{errors.firstname.message}</p>
-                                    </motion.div>
-                                    )}
-                                </div>
-                                <div className="w-full flex flex-col">
-
-                                    <Controller
-                                        name="phone"
-                                        control={control}
-                                        render={({ field }) => (
-                                            <Input
-                                                type="text"
-                                                placeholder="Numer kontaktowy"
-                                                {...field}
-                                                onBlur={() => trigger("phone")}
-
-                                            />
-                                        )}
-                                    />
-                                    {errors.phone && (<motion.div initial={{ opacity: 0 }}
-                                        animate={{
-                                            opacity: 1,
-                                            transition: { delay: 0.1, duration: 0.4, ease: "easeIn" },
-                                        }}>
-                                        <p className="text-red-500 text-sm px-1">{errors.phone.message}</p>
-
-                                    </motion.div>
-
-                                    )
-                                    }
-                                </div>
-                            </div>
-
-                            {/** Select */}
-                            <div>
-                                <Suspense fallback={<div>Loading...</div>}>
-                                    <Controller
-                                        name="service"
-                                        control={control}
-                                        render={({ field }) => (
-                                            <Select onValueChange={field.onChange} value={field.value}>
-                                                <SelectTrigger className="w-full">
-                                                    <SelectValue />
-                                                </SelectTrigger>
-                                                <SelectContent className="min-w-[300px] max-w-full w-auto" >
-                                                    <SelectGroup>
-                                                        <SelectLabel>Proszę wybrać usługę</SelectLabel>
-                                                        {services.map(({ title }, idx) => (
-                                                            <SelectItem
-                                                                key={idx}
-                                                                value={title}
-                                                                className="break-words whitespace-normal"
-
-                                                            >
-                                                                {title}
-                                                            </SelectItem>
-                                                        ))}
-                                                    </SelectGroup>
-                                                </SelectContent>
-                                            </Select>
-                                        )}
-                                    />
-                                    {errors.service && (
-                                        <p className="text-red-500 text-sm">{errors.service.message}</p>
-                                    )}
-                                </Suspense>
-                            </div>
-
-                            {/** Textarea */}
-                            <div>
-                                <Controller
-                                    name="message"
-                                    control={control}
-                                    render={({ field }) => (
-                                        <Textarea
-                                            className="h-[200px]"
-                                            placeholder="Napisz wiadomość do nas"
-
-                                            {...field}
-                                            onBlur={() => trigger("message")}
-                                        />
-                                    )}
-                                />
-                                {errors.message && (
-                                    <p className="text-red-500 text-sm">{errors.message.message}</p>
-                                )}
-                            </div>
-
-                            <Button size="lg" className="max-w-40" type="submit">
-                                Wyślij
-                            </Button>
-                        </form>
+                        <Suspense fallback={<div>Ładowanie...</div>}>
+                            <ContactForm />
+                        </Suspense>
                     </div>
 
                     {/** Info */}
